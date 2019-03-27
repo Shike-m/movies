@@ -7,5 +7,6 @@ export const Wraper = styled.div`
     width:200px;
     position: fixed;
     height: 100%;
-    background: green;
+    background: lightgray;
+    text-align: center;
 `; 
