@@ -21,15 +21,15 @@ class Contents extends Component{
                 data:response
             })
         }
-        console.log(this.state.data);
+        // console.log(this.state.data);
     }
 
     displayDetails = (movie) => {
-        movie && this.setState({
+        movie && this.setState(() => ({
             isDisplay: true,
-            movie:movie
-        })
-        console.log(this.state.movie)
+            movie: movie
+        }));
+        // console.log(this.state.movie)
     }
     render() {
         
@@ -42,7 +42,7 @@ class Contents extends Component{
                     <MovieList movies={data} handleMovie={this.displayDetails} />
                 </div>
                 {
-                    isDisplay&&<MovieDisplay item={movie}/>
+                    isDisplay&&<div style={{margin:'30px auto',padding:"0",alignItems:'center',width:'100%'}}><MovieDisplay item={movie}/></div>
                 }
             </div>
            
