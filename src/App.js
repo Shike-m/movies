@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 // import logo from './logo.svg';
-import Home from './pages/home';
+import Layout from './pages/layout';
 import './App.scss';
 
 
@@ -14,7 +14,7 @@ class App extends Component {
           {/* <header className="App-header">
              <img src={logo} className="App-logo" alt="logo" />
           </header> */}
-          <Home />
+          <Layout />
           
         </div>
       </Provider>

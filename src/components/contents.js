@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import GetData from '../api/myFetch';
+import MovieList from './movieList';
+import MovieDisplay from './movieDisplay';
 
 
 class Contents extends Component{
-    state={
-        data:[]
+    state = {
+        movie:'',
+        data: [],
+        isDisplay:false
     }
 
     componentDidMount() {
-        
         GetData.Myfetch(this.loadMovies);
     }
     
@@ -20,12 +23,27 @@ class Contents extends Component{
         }
         console.log(this.state.data);
     }
-    render(){
-        // const {data}=this.state;
+
+    displayDetails = (movie) => {
+        movie && this.setState({
+            isDisplay: true,
+            movie:movie
+        })
+        console.log(this.state.movie)
+    }
+    render() {
+        
+        const { data, isDisplay, movie } = this.state;
+        
         return (
             <div>
-                <div><h2>This is contents</h2></div>
-               
+                <div>
+                    <h2>This is contents</h2>
+                    <MovieList movies={data} handleMovie={this.displayDetails} />
+                </div>
+                {
+                    isDisplay&&<MovieDisplay item={movie}/>
+                }
             </div>
            
         )
